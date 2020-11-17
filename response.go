@@ -21,12 +21,14 @@ type Button struct {
 }
 
 type Card struct {
-	Type        string     `json:"type"`
+	Type        CardType   `json:"type"`
 	Title       string     `json:"title,omitempty"`
 	Description string     `json:"description,omitempty"`
 	ImageId     int        `json:"image_id,omitempty"`
 	Items       []CardItem `json:"items,omitempty"`
 }
+
+type CardType string
 
 type CardItem struct {
 	ImageId int `json:"image_id"`
@@ -37,3 +39,8 @@ type ResponseSession struct {
 	MessageId int64  `json:"message_id"`
 	UserId    string `json:"user_id"`
 }
+
+const (
+	CardTypeBigImage  CardType = "BigImage"
+	CardTypeItemsList CardType = "ItemsList"
+)
